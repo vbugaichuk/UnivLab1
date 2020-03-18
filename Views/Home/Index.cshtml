@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Ласкаво просимо</h1>
+    </div>
+
+    <body>
+        <div class="img">
+            <img src="~/it.jpg" alt="IT компанії"/>
+            <button class="btn" href="Countries">Перелік країн</button>
+        </div>
+    </body>
+<style>
+    p.crop{
+    float:left;
+        margin:.5em 10px .5em 0;
+        overflow:hidden; /* this is important */
+        border:1px solid #ccc;
+    }
+    p.crop img{
+        margin: -341px -400px -400px -400px;
+    }
+
+    .img{
+        display: inline-block;
+        width: 960px;
+        height: 300px;
+        overflow: hidden;
+        border: 1px solid #FFFFFF;
+        background: #FFFFFF;
+        outline: 1px solid #CCCCCC;
+        margin: 10px;
+    }
+    .img img{
+        width: 1300px;
+        border: none;
+        margin: -201px;
+        padding: 0;
+    }
+    .img .btn {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        margin: 40px;
+        padding: 8px;
+        width: 80%;
+        max-width: 200px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 8px;
+        color: #fff;
+        text-align:center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-out;
+        outline: none;
+    }
+</style>
+
