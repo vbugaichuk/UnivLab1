@@ -9,12 +9,17 @@
 <body>
     <div class="img">
         <img src="~/it.jpg" alt="IT компанії" />
-        <button class="btn" href="Countries">Перелік країн</button>
+        <a class="btn" asp-area="" asp-controller="Countries" asp-action="Index">Перелік країн</a>
     </div>
 </body>
 
+<hr size=3px width=1000px align=left />
+<h1 align="center">Аккаунт</h1>
+
+
 @if (User.Identity.IsAuthenticated)
 {
+    <h2>Ви ввійшли як:</h2>
     <p>@User.Identity.Name</p>
 
     <form method="post" asp-controller="Account" asp-action="Logout">
@@ -28,6 +33,30 @@ else
 }
 
 <style>
+    .hop {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .hop:hover {
+            color: #fff;
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .hop:focus {
+            box-shadow: 0 0 0 0.2rem rgba(72,180,97,0.5);
+        }
+
+        .hop.disabled {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+
+
     p.crop {
         float: left;
         margin: .5em 10px .5em 0;
