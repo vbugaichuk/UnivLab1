@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DBIT;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DBIT.Controllers
 {
+    [Authorize(Roles ="admin,user")]
     public class CountriesController : Controller
     {
         private readonly DBITCompanyContext _context;
