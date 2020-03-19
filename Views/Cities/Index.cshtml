@@ -4,11 +4,11 @@
     ViewData["Title"] = "Міста";
 }
 
-    <h1>Міста за країною @ViewBag.CountryName</h1>
-    
-    <p>
-        @Html.ActionLink("Додати нове місто","Create",new { countryId = @ViewBag.CountryId })
-    </p>    
+<h1>Міста за країною @ViewBag.CountryName</h1>
+
+<p>
+    @Html.ActionLink("Додати нове місто", "Create", new { countryId = @ViewBag.CountryId })
+</p>
 
 <p>
     <a asp-action="Create">Створити</a>
@@ -26,20 +26,47 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Деталі</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Деталі</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<div class="container">
+    <div id="chart2"></div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+        google.charts.load("current", { "packages": ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get('/api/Charts1/JsonData1', function (jsonData1) {
+                var data = google.visualization.arrayToDataTable(jsonData1, false);
+                var option = {
+                    title: "Співвідношення кількості IT компаній та міст",
+                    width: 700,
+                    height: 400
+                };
+                chart = new google.visualization.ColumnChart(document.getElementById("chart2"));
+                chart.draw(data, option);
+            })
+        }
+    </script>
+}

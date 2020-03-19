@@ -10,35 +10,17 @@ namespace DBIT.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChartsController : ControllerBase
+    public class Charts1Controller : ControllerBase
     {
         private readonly DBITCompanyContext _context;
 
-        public ChartsController(DBITCompanyContext context)
+        public Charts1Controller(DBITCompanyContext context)
         {
             _context = context;
         }
 
+        [HttpGet("JsonData1")]
 
-        [HttpGet("JsonData")]
-        
-
-        
-        public JsonResult JsonData()
-        {
-            var countries = _context.Countries.Include(b => b.Cities).ToList();
-            List<object> cCity = new List<object>();
-            cCity.Add(new object[] { "Країна", "Кількість міст" });
-            foreach (var c in countries)
-            {
-                cCity.Add(new object[] { c.Name, c.Cities.Count() });
-
-            }
-            return new JsonResult(cCity);
-        }
-        
-
-            /*
         public JsonResult JsonData1()
         {
             var cities = _context.Cities.Include(b => b.Offices).ToList();
@@ -50,8 +32,5 @@ namespace DBIT.Controllers
             }
             return new JsonResult(cIT);
         }
-        */
-
-
     }
 }
