@@ -12,8 +12,12 @@ namespace DBIT
             Products = new HashSet<Product>();
         }
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-        [Display(Name = "IT компанія")]
+        [Display(Name = "Назва")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        [Range(1900, 2020, ErrorMessage = "Недопустимий рік")]
+        [Display(Name = "Рік")]
         public int Year { get; set; }
         public int Id { get; set; }
 

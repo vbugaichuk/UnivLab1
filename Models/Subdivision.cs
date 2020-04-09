@@ -15,6 +15,9 @@ namespace DBIT
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
         [Display(Name = "Підрозділ")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        [Display(Name = "Офіс")]
         public int OfficeId { get; set; }
 
         public virtual Office Office { get; set; }

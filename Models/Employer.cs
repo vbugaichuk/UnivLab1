@@ -16,16 +16,21 @@ namespace DBIT
 
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        [Display(Name = "Паспорт")]
         public string Passport { get; set; }
 
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
         [Range(1900, 2020, ErrorMessage = "Недопустимий рік")]
+        [Display(Name = "Рік")]
         public int Year { get; set; }
+
+
         public int Id { get; set; }
 
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        [Display(Name = "Освіта")]
         public string Education { get; set; }
 
 

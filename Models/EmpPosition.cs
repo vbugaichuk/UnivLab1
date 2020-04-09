@@ -12,9 +12,13 @@ namespace DBIT
         }
 
         public int Id { get; set; }
+
+
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
         [Display(Name = "Позиція")]
         public string Position { get; set; }
+
+
 
         public virtual ICollection<EmpSub> EmpSubs { get; set; }
     }

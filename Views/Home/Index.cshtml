@@ -19,8 +19,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Ви ввійшли як:</h2>
-    <p>@User.Identity.Name</p>
+    <h2>Ви ввійшли як:</h2> <p>@User.Identity.Name</p>
 
     <form method="post" asp-controller="Account" asp-action="Logout">
         <input type="submit" value="Вихід" />
@@ -30,9 +29,58 @@ else
 {
     <a asp-controller="Account" asp-action="Login">Вхід</a>
     <a asp-controller="Account" asp-action="Register">Реєстрація</a>
+    <div class="controller">
+        <a class="btn-success" asp-area="" asp-controller="Account" asp-action="Login">Вхід</a>
+        <a class="btn-success" asp-area="" asp-controller="Account" asp-action="Register">Реєстрація</a>
+    </div>
 }
 
 <style>
+    .controller {
+    width: 960px;
+    height: 1300px;
+    }
+
+    .controller btn-success {
+    color: #fff;
+    background-color: #18BC9C;
+    border-color: #18BC9C;
+    height: 10px;
+    }
+
+    .controller btn-success:hover {
+    color: #fff;
+    background-color: #149a80;
+    border-color: #128f76;
+    }
+
+    .controller btn-success:focus, .btn-success.focus {
+    color: #fff;
+    background-color: #149a80;
+    border-color: #128f76;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(59, 198, 171, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(59, 198, 171, 0.5);
+    }
+
+    .controller btn-success.disabled, .btn-success:disabled {
+    color: #fff;
+    background-color: #18BC9C;
+    border-color: #18BC9C;
+    }
+
+    .controller btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
+    .show > .btn-success.dropdown-toggle {
+        color: #fff;
+        background-color: #128f76;
+        border-color: #11836d;
+    }
+
+        .controller btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-success.dropdown-toggle:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(59, 198, 171, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(59, 198, 171, 0.5);
+        }
+
     .hop {
         color: #fff;
         background-color: #28a745;
@@ -67,6 +115,7 @@ else
         p.crop img {
             margin: -341px -400px -400px -400px;
         }
+
 
     .img {
         display: inline-block;
