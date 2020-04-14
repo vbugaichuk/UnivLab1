@@ -33,15 +33,13 @@
                 <input asp-for="Education" class="form-control" />
                 <span asp-validation-for="Education" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Повернутися до списку</a>
+    <input type="submit" value="Зберегти" class="btn btn-success" style="position:absolute; top: 475px; left: 150px;"/>
+    <a asp-action="Index" style="position:absolute; top: 505px;">Повернутися до списку</a>
 </div>
 
 @section Scripts {
